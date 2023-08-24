@@ -5,6 +5,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import colors from '../config/colors';
 import { BlurView } from 'expo-blur'
 import Searchinput from '../components/searchinput';
+import CategoryList from '../components/CategoryList';
 
 const HomeScreen = () => {
   return (
@@ -36,10 +37,13 @@ const HomeScreen = () => {
             coffee for you
           </Text>
         </View>
-        <View style = {{padding:25}}>
+        <View style={{ padding: 25 }}>
           <Searchinput></Searchinput>
         </View>
 
+        <View style = {{alignItems:'center'}}>
+          <CategoryList></CategoryList>
+        </View>
       </View>
     </SafeAreaView>
   )
