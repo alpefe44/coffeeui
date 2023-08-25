@@ -41,7 +41,7 @@ const HomeScreen = () => {
           <Searchinput></Searchinput>
         </View>
 
-        <View style = {{alignItems:'center'}}>
+        <View>
           <CategoryList></CategoryList>
         </View>
       </View>

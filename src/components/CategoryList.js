@@ -4,6 +4,7 @@ import categories from '../config/categories'
 import colors from '../config/colors';
 import { BlurView } from 'expo-blur';
 import coffees from '../config/coffees';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const CategoryList = () => {
 
@@ -35,15 +36,15 @@ const CategoryList = () => {
         data={coffees}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style = {{justifyContent:'center' , alignItems:'center'}}>
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             {
               selectCategory === item.categoryId ?
-                <View style={{ width: width / 2 - 20, marginTop: 18 , marginLeft:15 , backgroundColor:colors.dark ,}}>
+                <View style={{ width: width / 2 - 20, marginTop: 18, marginLeft: 15, backgroundColor: colors.dark, }}>
                   <BlurView
-                    intensity={30}       
+                    intensity={30}
                     style={{
-                      height:300,
-                      padding:15,
+                      height: 'auto',
+                      padding: 15,
                     }}
                   >
                     <TouchableOpacity style={{ height: 150 }}>
@@ -55,6 +56,22 @@ const CategoryList = () => {
 
                       </Image>
                     </TouchableOpacity>
+
+                    <View style={{ marginTop: 6 }}>
+                      <Text style={{ fontSize: 18, color: colors.white, marginBottom: 5 }}>{item.name}</Text>
+                      <Text style={{ fontSize: 13, color: colors.white }}>{item.included}</Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row' , justifyContent:'space-between' , alignItems:'center'}}>
+                      <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ marginRight:3,fontSize:24,color: colors.primary }}>$</Text>
+                        <Text style={{fontSize:24 , color:colors.white}}>{item.price}</Text>
+                      </View>
+                      <TouchableOpacity>
+                        <Ionicons name="md-add-circle-sharp" size={32} color="#D17842" />
+                      </TouchableOpacity>
+                    </View>
+
                   </BlurView>
                 </View> : <Text></Text>
 
