@@ -39,22 +39,27 @@ const CategoryList = () => {
           <View style={{ justifyContent: 'center', alignItems: 'center' }}>
             {
               selectCategory === item.categoryId ?
-                <View style={{ width: width / 2 - 20, marginTop: 18, marginLeft: 15, backgroundColor: colors.dark, }}>
+                <View style={{ borderRadius: 35, width: width / 2 - 20, marginTop: 18, marginLeft: 15, backgroundColor: colors.dark, }}>
                   <BlurView
-                    intensity={30}
+                    intensity={10}
                     style={{
                       height: 'auto',
                       padding: 15,
                     }}
                   >
-                    <TouchableOpacity style={{ height: 150 }}>
+                    <TouchableOpacity style={{ height: 150, position: 'relative' }}>
                       <Image style={{
                         width: "100%",
                         height: "100%",
                         borderRadius: 20
                       }} source={item.image}>
-
                       </Image>
+                      <View style={{ alignItems:'center',position: 'absolute', right: 0, top: 0, width: 50, height: 25, backgroundColor: 'rgba(52, 52, 52, 0.8)', borderTopRightRadius:10,borderBottomLeftRadius: 15, borderTopLeftRadius: 4 }}>
+                        <View style = {{flexDirection:'row'}}>
+                          <Ionicons name="star" size={16} color="#D17842" />
+                          <Text style = {{marginLeft:2,color:colors.white , fontWeight:'700'}}>{item.rating}</Text>
+                        </View>
+                      </View>
                     </TouchableOpacity>
 
                     <View style={{ marginTop: 6 }}>
@@ -62,10 +67,10 @@ const CategoryList = () => {
                       <Text style={{ fontSize: 13, color: colors.white }}>{item.included}</Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row' , justifyContent:'space-between' , alignItems:'center'}}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                       <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ marginRight:3,fontSize:24,color: colors.primary }}>$</Text>
-                        <Text style={{fontSize:24 , color:colors.white}}>{item.price}</Text>
+                        <Text style={{ marginRight: 3, fontSize: 24, color: colors.primary }}>$</Text>
+                        <Text style={{ fontSize: 24, color: colors.white }}>{item.price}</Text>
                       </View>
                       <TouchableOpacity>
                         <Ionicons name="md-add-circle-sharp" size={32} color="#D17842" />
