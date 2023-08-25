@@ -5,11 +5,13 @@ import colors from '../config/colors';
 import { BlurView } from 'expo-blur';
 import coffees from '../config/coffees';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 const CategoryList = () => {
 
   const width = Dimensions.get('screen').width;
   const [selectCategory, setSelectCategory] = useState(0);
+  const { navigate } = useNavigation();
 
   return (
     <>
@@ -47,17 +49,17 @@ const CategoryList = () => {
                       padding: 15,
                     }}
                   >
-                    <TouchableOpacity style={{ height: 150, position: 'relative' }}>
+                    <TouchableOpacity style={{ height: 150, position: 'relative' }} onPress={() => navigate('Detail', { id: item.id })}>
                       <Image style={{
                         width: "100%",
                         height: "100%",
-                        borderRadius: 20
+                        borderRadius: 20,
                       }} source={item.image}>
                       </Image>
-                      <View style={{ alignItems:'center',position: 'absolute', right: 0, top: 0, width: 50, height: 25, backgroundColor: 'rgba(52, 52, 52, 0.8)', borderTopRightRadius:10,borderBottomLeftRadius: 15, borderTopLeftRadius: 4 }}>
-                        <View style = {{flexDirection:'row'}}>
+                      <View style={{ alignItems: 'center', position: 'absolute', right: 0, top: 0, width: 50, height: 25, backgroundColor: 'rgba(52, 52, 52, 0.8)', borderTopRightRadius: 10, borderBottomLeftRadius: 15, borderTopLeftRadius: 4 }}>
+                        <View style={{ flexDirection: 'row' }}>
                           <Ionicons name="star" size={16} color="#D17842" />
-                          <Text style = {{marginLeft:2,color:colors.white , fontWeight:'700'}}>{item.rating}</Text>
+                          <Text style={{ marginLeft: 2, color: colors.white, fontWeight: '700' }}>{item.rating}</Text>
                         </View>
                       </View>
                     </TouchableOpacity>

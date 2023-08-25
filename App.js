@@ -5,9 +5,7 @@ import Router from './Router';
 
 export default function App() {
   return (
-    <View style={styles.container}>
       <Router></Router>
-    </View>
   );
 }
 
