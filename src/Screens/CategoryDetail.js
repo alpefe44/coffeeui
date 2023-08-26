@@ -5,19 +5,19 @@ import coffees from '../config/coffees';
 import colors from '../config/colors';
 import { BlurView } from 'expo-blur';
 
-const CategoryDetail = ({ route }) => {
+const CategoryDetail = ({ route, navigation }) => {
   const height = Dimensions.get('screen').height;
   const { id } = route.params;
   return (
     <>
       {
         coffees.filter((item) => item.id === id).map((item) => (
-          <View>
+          <View key={item.id}>
             <View>
               <View style={{ height: height / 2 + 10, position: 'relative' }}>
                 <Image style={{ height: '100%', width: '100%', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }} source={item.image}>
                 </Image>
-                <TouchableOpacity style={{ position: 'absolute', left: 20, top: 30 }}>
+                <TouchableOpacity style={{ position: 'absolute', left: 20, top: 30 }} onPress={() => navigation.navigate('Home')}>
                   <Ionicons name="arrow-back-circle" size={40} color={colors['white']} />
                 </TouchableOpacity>
                 <TouchableOpacity style={{ position: 'absolute', right: 20, top: 30 }}>
@@ -38,11 +38,11 @@ const CategoryDetail = ({ route }) => {
                     <View style={{ flexDirection: 'row', marginBottom: 15 }}>
                       <View style={{ marginRight: 10, width: 50, height: 50, backgroundColor: colors['dark-light'], borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
                         <Ionicons name="cafe" size={24} color={colors.primary} />
-                        <Text style = {{color:'white'}}>Coffee</Text>
+                        <Text style={{ color: 'white' }}>Coffee</Text>
                       </View>
-                      <View style={{ width: 50, height: 50, backgroundColor: colors['dark-light'], borderRadius: 10 , alignItems:'center' , justifyContent:'center'}}>
+                      <View style={{ width: 50, height: 50, backgroundColor: colors['dark-light'], borderRadius: 10, alignItems: 'center', justifyContent: 'center' }}>
                         <Ionicons name="water" size={24} color={colors.primary} />
-                        <Text style = {{color:'white'}}>Milk</Text>
+                        <Text style={{ color: 'white' }}>Milk</Text>
                       </View>
                     </View>
 

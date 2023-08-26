@@ -23,7 +23,7 @@ const CategoryList = () => {
             <TouchableOpacity style={{ paddingHorizontal: 15 }} onPress={() => setSelectCategory(item.id)}>
               {
                 selectCategory === item.id ? <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'white' }}>{item.name}</Text>
-                  : <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{item.name}</Text>
+                  : <Text style={{ fontSize: 15, fontWeight: 'bold' , color:colors.light }}>{item.name}</Text>
               }
 
             </TouchableOpacity>
@@ -43,7 +43,7 @@ const CategoryList = () => {
               selectCategory === item.categoryId ?
                 <View style={{ borderRadius: 35, width: width / 2 - 20, marginTop: 18, marginLeft: 15, backgroundColor: colors.dark, }}>
                   <BlurView
-                    intensity={10}
+                    intensity={4}
                     style={{
                       height: 'auto',
                       padding: 15,
