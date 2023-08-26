@@ -12,7 +12,7 @@ const Router = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home' component={HomeScreen} options={{headerShown:false}}></Stack.Screen>
-        <Stack.Screen name='Detail' component={CategoryDetail}></Stack.Screen>
+        <Stack.Screen name='Detail' component={CategoryDetail} options={{headerShown:false}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   )
