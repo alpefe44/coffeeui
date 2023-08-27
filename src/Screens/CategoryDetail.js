@@ -4,12 +4,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import coffees from '../config/coffees';
 import colors from '../config/colors';
 import { BlurView } from 'expo-blur';
+import ReadMoreText from '../components/ReadMoreText';
 
 const CategoryDetail = ({ route, navigation }) => {
   const height = Dimensions.get('screen').height;
   const { id } = route.params;
   return (
-    <>
+    <View style={{ flex: 1, backgroundColor: colors.dark }}>
       {
         coffees.filter((item) => item.id === id).map((item) => (
           <View key={item.id}>
@@ -50,14 +51,17 @@ const CategoryDetail = ({ route, navigation }) => {
                       <Text style={{ color: 'white', fontSize: 12, fontWeight: '600' }}>Medium Roasted</Text>
                     </View>
                   </View>
-
+                </View>
+                <View style = {{padding:15}}>
+                  <Text style={{ fontSize: 16, fontWeight: '600', color: colors.white , marginBottom:15 }}>Description</Text>
+                  <ReadMoreText text={item.description} maxLength={80}></ReadMoreText>
                 </View>
               </View>
             </View>
           </View>
         ))
       }
-    </>
+    </View>
   )
 }
 
