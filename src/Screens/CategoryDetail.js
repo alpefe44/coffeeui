@@ -91,6 +91,19 @@ const CategoryDetail = ({ route, navigation }) => {
                     <Text style={{ color: buttonStateL ? colors.primary : 'white', fontWeight: 'bold' }}>L</Text>
                   </TouchableOpacity>
                 </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 70, paddingHorizontal: 15 }}>
+                  <View style={{ alignItems: 'center' }}>
+                    <Text style={{ color: colors['white-smoke'], fontWeight: 'bold' }}>Price</Text>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={{ fontSize: 20, color: colors.primary, paddingRight: 5 }}>$</Text>
+                      <Text style={{ fontSize: 20, color: colors.white }}>{item.price}</Text>
+                    </View>
+
+                  </View>
+                  <TouchableOpacity style={{ width: 250, height: 60, backgroundColor: colors.primary, borderRadius: 20, alignItems: 'center', justifyContent: 'center', elevation: 5, shadowOpacity: 0.5, shadowColor: colors.primary, shadowRadius: 10 }}>
+                    <Text style={{ fontWeight: 'bold', color: 'white', fontSize: 22 }}>Buy Now</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>
