@@ -49,7 +49,7 @@ const CategoryDetail = ({ route, navigation }) => {
                   <Ionicons name="heart-circle" size={40} color={colors['white']} />
                 </TouchableOpacity>
                 <View
-                  style={{ position: 'absolute', bottom: 0, width: '100%', height: 150, backgroundColor: '#000000', borderRadius: 10, opacity: 0.6, flexDirection: 'row', justifyContent: 'space-between' }}
+                  style={{ position: 'absolute', bottom: 0, width: '100%', height: 150, backgroundColor: '#000000', borderRadius: 10, opacity: 0.8, flexDirection: 'row', justifyContent: 'space-between' }}
                 >
                   <View style={{ padding: 16 }}>
                     <Text style={{ color: 'white', fontSize: 22, fontWeight: '800', marginBottom: 5 }}>{item.name}</Text>
