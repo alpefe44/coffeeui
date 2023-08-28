@@ -1,14 +1,38 @@
 import { View, Text, Image, Dimensions, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import coffees from '../config/coffees';
 import colors from '../config/colors';
-import { BlurView } from 'expo-blur';
-import ReadMoreText from '../components/ReadMoreText';
+
 
 const CategoryDetail = ({ route, navigation }) => {
+
+
   const height = Dimensions.get('screen').height;
   const { id } = route.params;
+
+  const [buttonStateS, setButtonStateS] = useState(false);
+  const [buttonStateM, setButtonStateM] = useState(false);
+  const [buttonStateL, setButtonStateL] = useState(false);
+
+  const handleButtonClick = (buttonName) => {
+    if (buttonName === 'S') {
+      setButtonStateS(true);
+      setButtonStateM(false);
+      setButtonStateL(false);
+    } else if (buttonName === 'M') {
+      setButtonStateS(false);
+      setButtonStateM(true);
+      setButtonStateL(false);
+    } else if (buttonName === 'L') {
+      setButtonStateS(false);
+      setButtonStateM(false);
+      setButtonStateL(true);
+    }
+  };
+
+
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.dark }}>
       {
@@ -52,16 +76,27 @@ const CategoryDetail = ({ route, navigation }) => {
                     </View>
                   </View>
                 </View>
-                <View style = {{padding:15}}>
-                  <Text style={{ fontSize: 16, fontWeight: '600', color: colors.white , marginBottom:15 }}>Description</Text>
-                  <ReadMoreText text={item.description} maxLength={80}></ReadMoreText>
+                <View style={{ padding: 15 }}>
+                  <Text style={{ fontSize: 16, fontWeight: '600', color: colors.white, marginBottom: 15 }}>Description</Text>
+                  <Text style={{ fontSize: 16, color: 'white', lineHeight: 25 }}>{item.description}</Text>
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                  <TouchableOpacity style={{ borderWidth: 2, borderColor: buttonStateS ? colors.primary : colors['dark-light'], width: 100, height: 40, backgroundColor: colors['dark-light'], alignItems: 'center', justifyContent: 'center', borderRadius: 15 }} onPress={() => handleButtonClick("S")}>
+                    <Text style={{ color: buttonStateS ? colors.primary : 'white', fontWeight: 'bold' }}>S</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={{ borderWidth: 2, borderColor: buttonStateM ? colors.primary : colors['dark-light'], width: 100, height: 40, backgroundColor: colors['dark-light'], alignItems: 'center', justifyContent: 'center', borderRadius: 15 }} onPress={() => handleButtonClick("M")} >
+                    <Text style={{ color: buttonStateM ? colors.primary : 'white', fontWeight: 'bold' }}>M</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={{ borderWidth: 2, borderColor: buttonStateL ? colors.primary : colors['dark-light'], width: 100, height: 40, backgroundColor: colors['dark-light'], alignItems: 'center', justifyContent: 'center', borderRadius: 15 }} onPress={() => handleButtonClick("L")}>
+                    <Text style={{ color: buttonStateL ? colors.primary : 'white', fontWeight: 'bold' }}>L</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
           </View>
         ))
       }
-    </View>
+    </View >
   )
 }
 
